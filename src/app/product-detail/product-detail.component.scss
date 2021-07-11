@@ -1,0 +1,14 @@
+.product-detail-view {
+  .card-container {
+    padding: 20px;
+
+    .card {
+      border: none;
+
+      img {
+        height: 300px;
+        object-fit: contain;
+      }
+    }
+  }
+}

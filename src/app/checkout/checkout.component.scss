@@ -1,0 +1,22 @@
+.checkout-view {
+  .cart-item {
+    padding: 20px 0px;
+
+    img {
+      height: 70px;
+      object-fit: contain;
+    }
+  }
+
+  .price-info {
+    .price {
+      display: flex;
+      justify-content: flex-end;
+      span {
+        &:nth-child(even) {
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}

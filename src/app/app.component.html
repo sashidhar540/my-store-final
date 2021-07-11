@@ -1,0 +1,13 @@
+<div class="my-cart">
+  <nav class="navbar navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/products">My Store</a>
+      <div (click)="goToCart()" [hidden]="!showCart">
+        <app-cart [showCartIcon]="showCart"></app-cart>
+      </div>
+    </div>
+  </nav>
+  <main class="container app-body">
+    <router-outlet></router-outlet>
+  </main>
+</div>

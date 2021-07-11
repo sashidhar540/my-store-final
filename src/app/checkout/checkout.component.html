@@ -1,0 +1,65 @@
+<div class="checkout-view">
+  <!-- Modal -->
+  <div class="modal-backdrop fade" [ngClass]="{'show': showModal}"></div>
+  <div class="modal fade" [ngClass]="{'show': showModal}"
+       [ngStyle]="{'display': showModal ? 'block' : 'none'}"
+       id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="checkoutModalLabel">Cart Summary</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                  (click)="closeModal()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-1 text-center fw-bold">S.No.</div>
+            <div class="col-3 text-center fw-bold">Preview</div>
+            <div class="col-2 text-center fw-bold">Name</div>
+            <div class="col-2 text-center fw-bold">Category</div>
+            <div class="col-2 text-center fw-bold">Quantity</div>
+            <div class="col-2 text-center fw-bold">Price per quantity</div>
+          </div>
+          <hr>
+          <div *ngFor="let cartItem of cartItems; let i = index;" class="cart-item">
+            <div class="row">
+              <div class="col-1 text-center">{{i + 1}}</div>
+              <div class="col-3">
+                <img [src]="cartItem?.image" class="card-img-top" alt="...">
+              </div>
+              <div class="col-2 text-center">{{cartItem?.name}}</div>
+              <div class="col-2 text-center">{{cartItem?.category}}</div>
+              <div class="col-2 text-center">{{cartItem?.quantity}}</div>
+              <div class="col-2 text-center">{{cartItem?.price | currency : 'USD'}}</div>
+            </div>
+          </div>
+          <hr>
+          <div class="row price-info">
+            <div *ngIf="showDiscount">
+              <div class="col-12 price">
+                <span class="fw-bold">Subtotal:</span>
+                <span>{{subTotal | currency : 'USD'}}</span>
+              </div>
+              <div class="col-12 price">
+                <span class="fw-bold">Discount:</span>
+                <span>-{{discount | currency : 'USD'}}</span>
+              </div>
+            </div>
+            <div class="col-12 price">
+              <span class="fw-bold">Total price:</span>
+              <span>{{total | currency : 'USD'}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                  (click)="closeModal()">Close
+          </button>
+          <button type="button" class="btn btn-primary"
+                  (click)="confirm()">Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

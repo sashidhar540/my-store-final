@@ -1,0 +1,35 @@
+.confirmation-view {
+  padding: 20px;
+  .msg {
+    font-size: 30px;
+  }
+
+  .header {
+    padding: 20px 12px;
+  }
+  .price-info {
+    .price {
+      display: flex;
+      justify-content: flex-end;
+      span {
+        &:nth-child(even) {
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+
+  .item-price {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .order-info {
+    padding: 20px 12px;
+  }
+
+  .continue-shopping-btn {
+    background: #FFD814;
+    border-color: #FCD200;
+  }
+}

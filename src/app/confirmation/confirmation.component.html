@@ -1,0 +1,38 @@
+<div class="confirmation-view">
+  <div class="row">
+    <div class="row msg">
+      Thank you for shopping with us.
+    </div>
+    <div class="order-info">
+      <div><b>Order Placed:</b> {{orderDate | date : 'medium'}}</div>
+      <div><b>Invoice number:</b> {{invoiceNumber}}</div>
+    </div>
+    <div class="col-6">
+      <div class="row fw-bold header">Items purchased:</div>
+      <div class="row" *ngFor="let item of data?.purchasedItems">
+        <div class="col-6 item-name">{{item?.name}}</div>
+        <div class="col-6 item-price">{{item?.price * item?.quantity | currency : 'USD'}}</div>
+      </div>
+      <hr>
+      <div class="row price-info">
+        <div *ngIf="data?.discount">
+          <div class="col-12 price">
+            <span class="fw-bold">Subtotal:</span>
+            <span>{{data?.subTotal | currency : 'USD'}}</span>
+          </div>
+          <div class="col-12 price">
+            <span class="fw-bold">Discount:</span>
+            <span>-{{data?.discount | currency : 'USD'}}</span>
+          </div>
+        </div>
+        <div class="col-12 price">
+          <span class="fw-bold">Total price:</span>
+          <span>{{data?.total | currency : 'USD'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 padding-20 flex-center">
+    <button type="button" class="btn continue-shopping-btn" (click)="goToProducts()">Continue Shopping</button>
+  </div>
+</div>

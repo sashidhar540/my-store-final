@@ -1,0 +1,38 @@
+<div class="cart-view">
+  <div [attr.data-notify]="cartQuantity" class="cart-notification" *ngIf="showCartIcon">
+    <i class="bi cart-icon" [ngClass]="{'bi-cart-fill' : cartQuantity, 'bi-cart': !cartQuantity}"></i>
+  </div>
+  <div *ngIf="!showCartIcon" class="row">
+    <div class="col-9">
+      <div class="row flex-center cart-header">Items in your cart</div>
+      <div *ngFor="let cartItem of cartItems; let i = index;" class="cart-item row">
+        <div class="col-4"></div>
+        <div class="col-5">
+          <div class="row flex-center">
+            <img [src]="cartItem?.image" class="card-img-top" alt="...">
+          </div>
+          <div class="row product-info">
+            <div class="flex-center type">{{cartItem?.name}}</div>
+            <div class="flex-center price">{{cartItem?.price | currency: 'USD'}}</div>
+          </div>
+        </div>
+        <div class="col-3 flex-center">
+          <div class="input-group">
+            <div class="input-group-text" id="btnDecrement" (click)="updateQuantity(cartItem, false)">-</div>
+            <input type="text" class="form-control" placeholder="quantity" [value]="cartItem?.quantity"
+                   (focus)="onFocus(cartItem)"
+                   (keydown)="checkValue($event)"
+                   (blur)="onBlur($event, cartItem)">
+            <div class="input-group-text" id="btnIncrement" (click)="updateQuantity(cartItem, true)">+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 cart-summary">
+      <div class="summary-label">Subtotal ({{cartQuantity}} items): {{subTotal | currency : 'USD'}}</div>
+      <div class="row">
+        <button type="button" class="btn checkout-btn" (click)="goToCheckoutPage()">Checkout</button>
+      </div>
+    </div>
+  </div>
+</div>

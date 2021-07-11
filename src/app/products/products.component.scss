@@ -1,0 +1,43 @@
+.products-view {
+  .card-container {
+    padding: 20px;
+
+    .card {
+      border: none;
+
+      img {
+        height: 300px;
+        object-fit: contain;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .product-filters {
+    padding-top: 16px;
+    .filter-type {
+      &:not(last-child) {
+        margin-bottom: 16px;
+      }
+    }
+
+    .filter-type-name {
+      font-weight: bold;
+    }
+  }
+
+  .sort-products {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+
+    label {
+      padding-right: 8px;
+    }
+
+    select {
+      border-radius: 4px;
+      padding: 4px;
+    }
+  }
+}

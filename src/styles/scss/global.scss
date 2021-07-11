@@ -1,0 +1,49 @@
+.my-cart {
+  .app-body {
+    padding-top: 60px;
+  }
+  i {
+    &.bi {
+      font-size: 24px;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 1600px) {
+    .container {
+      max-width: 1200px;
+    }
+  }
+
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .product-info {
+    padding-top: 15px;
+
+    .type {
+      color: #999;
+    }
+
+    .price {
+      color: #666;
+    }
+  }
+
+  .bd-navbar {
+    background-color: #7952b3;
+  }
+
+  .padding-0 {
+    padding: 0px;
+  }
+
+  .padding-20 {
+    padding: 20px;
+  }
+}
